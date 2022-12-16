@@ -35,14 +35,16 @@ git clone -b 1.0.18 --depth 1 https://github.com/jedisct1/libsodium.git $DIR_LIB
 ./autogen.sh
 
 # [generate]
-git clean -Xdf
-./autogen.sh
-./dist-build/ios.sh
-mkdir -p $DIR_DEST/Plugins/iOS
-cp $DIR_LIBSODIUM/libsodium-ios/lib/libsodium.a $DIR_DEST/Plugins/iOS/libsodium.a
+#git clean -Xdf
+#./autogen.sh
+#./dist-build/ios.sh
+#mkdir -p $DIR_DEST/Plugins/iOS
+#cp $DIR_LIBSODIUM/libsodium-ios/lib/libsodium.a $DIR_DEST/Plugins/iOS/libsodium.a
 
 
 git clean -Xdf
+
+ARCHS="x86_64 arm64"
 ./autogen.sh
 ./dist-build/osx.sh
 mkdir -p $DIR_DEST/Plugins/x64
