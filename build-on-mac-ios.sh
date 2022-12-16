@@ -44,7 +44,7 @@ git clone -b 1.0.18 --depth 1 https://github.com/jedisct1/libsodium.git $DIR_LIB
 
 git clean -Xdf
 
-ARCHS="x86_64 arm64"
+export ARCHS="x86_64 arm64"
 ./autogen.sh
 ./dist-build/osx.sh
 mkdir -p $DIR_DEST/Plugins/x64
