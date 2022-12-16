@@ -4,14 +4,16 @@ on: [push]
 
 jobs:
   build_asset_mac:
-    name: Upload Asset on macOS (+ iOS)
-    runs-on: macos-12
+    name: Upload Asset on Linux (Android)
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Install Dependency
-        run: brew install coreutils automake
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1.2.0
+        with:
+          ndk-version: r25
 
       - name: Run Buildscript
-        run: sh ./build-on-mac-ios.sh
+        run: sh ./build-on-linux-android.sh
