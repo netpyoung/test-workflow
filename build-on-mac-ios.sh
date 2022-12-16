@@ -44,8 +44,9 @@ git clone -b 1.0.18 --depth 1 https://github.com/jedisct1/libsodium.git $DIR_LIB
 
 git clean -Xdf
 
-export VALID_ARCHS="x86_64 arm64"
 ./autogen.sh
+export ARCHS="x86_64 arm64"
+
 ./dist-build/osx.sh
 mkdir -p $DIR_DEST/Plugins/x64
 cp $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib $DIR_DEST/Plugins/x64/sodium.bundle
