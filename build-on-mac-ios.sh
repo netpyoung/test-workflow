@@ -44,16 +44,13 @@ git clone -b 1.0.18 --depth 1 https://github.com/jedisct1/libsodium.git $DIR_LIB
 
 git clean -Xdf
 
-./autogen.sh
-export OBJC="$clang -arch arm64 -arch x86_64"
-export OBJCPP="$clang -arch arm64 -E"
+# replace osx.sh with modified_osx.sh
+cp $ROOT/modified_osx.sh $DIR_LIBSODIUM/dist-build/osx.sh
 
+./autogen.sh
 ./dist-build/osx.sh
 mkdir -p $DIR_DEST/Plugins/x64
 cp $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib $DIR_DEST/Plugins/x64/sodium.bundle
 
-file $DIR_DEST/Plugins/iOS/libsodium.a
-echo 'lipo -info $DIR_DEST/Plugins/x64/sodium.bundle'
-lipo -info $DIR_DEST/Plugins/x64/sodium.bundle
-echo 'lipo -info $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib'
+echo "lipo -info $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib"
 lipo -info $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib
