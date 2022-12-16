@@ -4,16 +4,14 @@ on: [push]
 
 jobs:
   build_asset_mac:
-    name: Build asset on macOS
+    name: Upload Asset on macOS (+ iOS)
     runs-on: macos-10.15
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Install Dependency
-        run: |
-          brew install coreutils automake
+        run: brew install coreutils automake
 
       - name: Run Buildscript
-        run: |
-          sh ./build-on-mac-for-arm.sh
+        run: sh ./build-on-mac-ios.sh
