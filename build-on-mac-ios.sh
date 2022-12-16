@@ -52,4 +52,7 @@ mkdir -p $DIR_DEST/Plugins/x64
 cp $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib $DIR_DEST/Plugins/x64/sodium.bundle
 
 file $DIR_DEST/Plugins/iOS/libsodium.a
+echo 'file $DIR_DEST/Plugins/x64/sodium.bundle'
 file $DIR_DEST/Plugins/x64/sodium.bundle
+echo 'file $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib'
+file $DIR_LIBSODIUM/libsodium-osx/lib/libsodium.*.dylib
